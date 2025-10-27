@@ -1,0 +1,107 @@
+{
+  "success": true,
+  "message": "Products fetched successfully",
+  "data": [
+    {
+      "id": 1,
+      "name": "Whiskey Premium",
+      "description": "A smooth and rich premium whiskey aged for 12 years. Perfect for sipping neat or on the rocks with notes of vanilla, oak, and caramel.",
+      "price": 89.99,
+      "imageUrl": "https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=400&h=600&fit=crop",
+      "category": "Whiskey",
+      "alcoholPercentage": 40.0,
+      "origin": "Scotland"
+    },
+    {
+      "id": 2,
+      "name": "Vodka Crystal",
+      "description": "Ultra-pure vodka distilled five times for exceptional smoothness. Ideal for cocktails or enjoying straight with a crisp, clean finish.",
+      "price": 45.99,
+      "imageUrl": "https://images.unsplash.com/photo-1560508763-0fb7a095b2e6?w=400&h=600&fit=crop",
+      "category": "Vodka",
+      "alcoholPercentage": 40.0,
+      "origin": "Russia"
+    },
+    {
+      "id": 3,
+      "name": "Tequila Sunrise",
+      "description": "Premium tequila made from 100% blue agave. Smooth, slightly sweet taste with hints of citrus and pepper. Perfect for margaritas.",
+      "price": 65.99,
+      "imageUrl": "https://images.unsplash.com/photo-1596753365498-2d23bbfcbc24?w=400&h=600&fit=crop",
+      "category": "Tequila",
+      "alcoholPercentage": 38.0,
+      "origin": "Mexico"
+    },
+    {
+      "id": 4,
+      "name": "Red Wine Reserve",
+      "description": "Full-bodied red wine with complex flavors of dark berries, plum, and subtle spices. Aged in oak barrels for 18 months.",
+      "price": 35.99,
+      "imageUrl": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=600&fit=crop",
+      "category": "Wine",
+      "alcoholPercentage": 13.5,
+      "origin": "France"
+    },
+    {
+      "id": 5,
+      "name": "Gin Botanical",
+      "description": "Artisanal gin infused with 12 botanicals including juniper, coriander, and citrus peel. Perfect for a classic gin and tonic.",
+      "price": 52.99,
+      "imageUrl": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=400&h=600&fit=crop",
+      "category": "Gin",
+      "alcoholPercentage": 42.0,
+      "origin": "England"
+    },
+    {
+      "id": 6,
+      "name": "Rum Caribbean Gold",
+      "description": "Golden rum with rich flavors of tropical fruits, vanilla, and molasses. Aged for 8 years in charred oak barrels.",
+      "price": 48.99,
+      "imageUrl": "https://images.unsplash.com/photo-1587224049844-4977b1806682?w=400&h=600&fit=crop",
+      "category": "Rum",
+      "alcoholPercentage": 40.0,
+      "origin": "Jamaica"
+    },
+    {
+      "id": 7,
+      "name": "Champagne Brut",
+      "description": "Elegant champagne with fine bubbles and flavors of green apple, white peach, and brioche. Perfect for celebrations.",
+      "price": 75.99,
+      "imageUrl": "https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=400&h=600&fit=crop",
+      "category": "Champagne",
+      "alcoholPercentage": 12.0,
+      "origin": "France"
+    },
+    {
+      "id": 8,
+      "name": "Cognac XO",
+      "description": "Extra Old cognac aged for 15 years. Rich and complex with notes of dried fruits, spices, and oak. A true luxury spirit.",
+      "price": 125.99,
+      "imageUrl": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=600&fit=crop",
+      "category": "Cognac",
+      "alcoholPercentage": 40.0,
+      "origin": "France"
+    },
+    {
+      "id": 9,
+      "name": "Sake Premium",
+      "description": "Traditional Japanese sake with a delicate, refined flavor profile. Clean and smooth with hints of melon and rice.",
+      "price": 42.99,
+      "imageUrl": "https://images.unsplash.com/photo-1582106245687-0743dfdaa74a?w=400&h=600&fit=crop",
+      "category": "Sake",
+      "alcoholPercentage": 15.0,
+      "origin": "Japan"
+    },
+    {
+      "id": 10,
+      "name": "Bourbon Oak Barrel",
+      "description": "Small batch bourbon with bold flavors of caramel, vanilla, and toasted oak. Smooth finish with a hint of spice.",
+      "price": 68.99,
+      "imageUrl": "https://images.unsplash.com/photo-1589308078059-be1415eab4c7?w=400&h=600&fit=crop",
+      "category": "Bourbon",
+      "alcoholPercentage": 45.0,
+      "origin": "USA"
+    }
+  ]
+}
+

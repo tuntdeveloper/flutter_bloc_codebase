@@ -1,0 +1,63 @@
+{
+  "success": true,
+  "message": "Users fetched successfully",
+  "data": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=1",
+      "createdAt": "2024-01-15T10:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=2",
+      "createdAt": "2024-01-16T11:45:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob.johnson@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=3",
+      "createdAt": "2024-01-17T09:15:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Alice Williams",
+      "email": "alice.williams@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=4",
+      "createdAt": "2024-01-18T14:20:00.000Z"
+    },
+    {
+      "id": 5,
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=5",
+      "createdAt": "2024-01-19T16:30:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "Eva Davis",
+      "email": "eva.davis@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=6",
+      "createdAt": "2024-01-20T08:45:00.000Z"
+    },
+    {
+      "id": 7,
+      "name": "Frank Miller",
+      "email": "frank.miller@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=7",
+      "createdAt": "2024-01-21T13:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "name": "Grace Wilson",
+      "email": "grace.wilson@example.com",
+      "avatar": "https://i.pravatar.cc/150?img=8",
+      "createdAt": "2024-01-22T10:10:00.000Z"
+    }
+  ]
+}
+

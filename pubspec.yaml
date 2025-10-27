@@ -1,0 +1,103 @@
+name: flutter_bloc_codebase
+description: "A new Flutter project."
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ============================================================================
+  # UI & ICONS
+  # ============================================================================
+  # cupertino_icons: Provides iOS-style icons for cross-platform consistency
+  cupertino_icons: ^1.0.8
+  expandable_page_view:
+  
+  # ============================================================================
+  # STATE MANAGEMENT
+  # ============================================================================
+  # flutter_bloc: Implements BLoC (Business Logic Component) pattern for 
+  # predictable state management. Separates business logic from UI, making
+  # code testable, reusable, and maintainable.
+  flutter_bloc: ^8.1.3
+  
+  # ============================================================================
+  # CODE GENERATION (Runtime Annotations)
+  # ============================================================================
+  # freezed_annotation: Annotations for Freezed code generation. Creates
+  # immutable data classes with copyWith, equality, toString, and more.
+  freezed_annotation: ^2.4.1
+  
+  # json_annotation: Annotations for JSON serialization/deserialization.
+  # Works with json_serializable to convert between JSON and Dart objects.
+  json_annotation: ^4.8.1
+  
+  # ============================================================================
+  # NETWORKING & API
+  # ============================================================================
+  # dio: Powerful HTTP client for API calls with interceptors, global
+  # configuration, request cancellation, file download/upload, and timeout.
+  dio: ^5.4.0
+  
+  # ============================================================================
+  # DEPENDENCY INJECTION
+  # ============================================================================
+  # get_it: Service locator for dependency injection. Provides a central
+  # registry for app dependencies, enabling loose coupling and testability.
+  get_it: ^7.6.4
+  
+  # injectable: Annotation-based dependency injection that works with get_it.
+  # Generates registration code automatically, reducing boilerplate.
+  injectable: ^2.3.2
+  
+  # ============================================================================
+  # VIDEO PLAYER
+  # ============================================================================
+  # youtube_player_iframe: YouTube video player for Flutter applications (iframe-based)
+  youtube_player_iframe: ^5.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # ============================================================================
+  # CODE QUALITY & LINTING
+  # ============================================================================
+  # flutter_lints: Official Flutter linting rules for consistent code style
+  # and best practices. Activated in analysis_options.yaml.
+  flutter_lints: ^5.0.0
+  
+  # ============================================================================
+  # CODE GENERATION (Build-time Tools)
+  # ============================================================================
+  # build_runner: Build system for Dart code generation. Orchestrates code
+  # generators like freezed, json_serializable, and injectable_generator.
+  build_runner: ^2.4.6
+  
+  # freezed: Code generator that creates immutable classes with:
+  # - Data classes with copyWith method
+  # - Union types and sealed classes
+  # - JSON serialization when combined with json_serializable
+  freezed: ^2.4.5
+  
+  # json_serializable: Generates toJson() and fromJson() methods for Dart
+  # classes. Automatically handles JSON conversion for API models.
+  json_serializable: ^6.7.1
+  
+  # injectable_generator: Generates dependency injection registration code.
+  # Scans @injectable annotations and creates GetIt setup code.
+  injectable_generator: ^2.4.1
+  
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/mockup/
+    - assets/images/
+    - assets/icons/
