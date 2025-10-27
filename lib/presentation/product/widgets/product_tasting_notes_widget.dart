@@ -57,7 +57,7 @@ class ProductTastingNotesWidget extends StatelessWidget {
         children: [
           YouTubeVideoWidget(
             videoUrl:
-                'https://youtu.be/fCepB55CaSc?si=sAyhT0RshbPUjDvz',
+                'https://www.youtube.com/watch?v=LUjn3RpkcKY&list=RDLUjn3RpkcKY&start_radio=1',
           ),
           Column(
             mainAxisSize: MainAxisSize.min,

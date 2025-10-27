@@ -16,21 +16,23 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
   bool _isLoading = true;
   bool _hasError = false;
   String? _errorMessage;
+  bool _isPlayerReady = false;
 
   @override
   void initState() {
     super.initState();
     _initializePlayer();
-
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _controller.play();
-    });
   }
 
   void _initializePlayer() {
+    debugPrint('[YouTubePlayer] Initializing player for URL: ${widget.videoUrl}');
+
     try {
       final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
+      debugPrint('[YouTubePlayer] Extracted video ID: $videoId');
+
       if (videoId == null || videoId.isEmpty) {
+        debugPrint('[YouTubePlayer] ERROR: Invalid video ID');
         setState(() {
           _hasError = true;
           _errorMessage = 'Invalid YouTube URL';
@@ -39,37 +41,23 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
         return;
       }
 
+      debugPrint('[YouTubePlayer] Creating controller with video ID: $videoId');
       _controller = YoutubePlayerController(
         initialVideoId: videoId,
         flags: const YoutubePlayerFlags(
-          autoPlay: false,
+          autoPlay: true,
           mute: false,
           loop: false,
           enableCaption: false,
           controlsVisibleAtStart: false,
           hideControls: true,
         ),
-      );
+      )..addListener(listener);
 
-      _controller.addListener(() {
-        if (!mounted) return;
-
-        if (_controller.value.isReady) {
-          setState(() {
-            _isLoading = false;
-            _hasError = false;
-          });
-        }
-
-        if (_controller.value.hasError) {
-          setState(() {
-            _hasError = true;
-            _errorMessage = _controller.value.errorCode.toString();
-            _isLoading = false;
-          });
-        }
-      });
-    } catch (e) {
+      debugPrint('[YouTubePlayer] Controller created successfully');
+    } catch (e, stackTrace) {
+      debugPrint('[YouTubePlayer] EXCEPTION during initialization: $e');
+      debugPrint('[YouTubePlayer] Stack trace: $stackTrace');
       if (mounted) {
         setState(() {
           _hasError = true;
@@ -80,8 +68,33 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
     }
   }
 
+  void listener() {
+    debugPrint(
+      '[YouTubePlayer] LISTENER FIRED - isReady: ${_controller.value.isReady}, '
+      'hasError: ${_controller.value.hasError}',
+    );
+
+    if (_isPlayerReady && mounted && !_controller.value.isFullScreen) {
+      // Update UI based on player state if needed
+      setState(() {});
+    }
+
+    if (_controller.value.hasError) {
+      final errorCode = _controller.value.errorCode.toString();
+      debugPrint('[YouTubePlayer] ERROR in listener: $errorCode');
+      if (mounted) {
+        setState(() {
+          _hasError = true;
+          _errorMessage = errorCode;
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
   @override
   void dispose() {
+    debugPrint('[YouTubePlayer] Disposing controller');
     _controller.dispose();
     super.dispose();
   }
@@ -95,12 +108,9 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
   }
 
   Widget _buildPlayerContent() {
-    if (_isLoading) {
-      return Container(
-        color: Colors.black,
-        child: const Center(child: CircularProgressIndicator(color: Colors.white)),
-      );
-    }
+    debugPrint(
+      '[YouTubePlayer] Building content - isLoading: $_isLoading, hasError: $_hasError, isPlayerReady: $_isPlayerReady',
+    );
 
     if (_hasError) {
       return Container(
@@ -125,6 +135,7 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
                   setState(() {
                     _isLoading = true;
                     _hasError = false;
+                    _isPlayerReady = false;
                   });
                   _initializePlayer();
                 },
@@ -136,16 +147,43 @@ class _YouTubeVideoWidgetState extends State<YouTubeVideoWidget> {
       );
     }
 
-    return YoutubePlayer(
-      controller: _controller,
-      showVideoProgressIndicator: true,
-      progressIndicatorColor: Colors.white,
-      progressColors: const ProgressBarColors(
-        playedColor: Colors.white,
-        handleColor: Colors.white,
-        backgroundColor: Colors.grey,
-        bufferedColor: Colors.grey,
+    debugPrint('[YouTubePlayer] Rendering YoutubePlayer widget');
+
+    return YoutubePlayerBuilder(
+      onExitFullScreen: () {
+        // Reset orientation if needed
+      },
+      player: YoutubePlayer(
+        controller: _controller,
+        showVideoProgressIndicator: true,
+        progressIndicatorColor: Colors.white,
+        progressColors: const ProgressBarColors(
+          playedColor: Colors.white,
+          handleColor: Colors.white,
+          backgroundColor: Colors.grey,
+          bufferedColor: Colors.grey,
+        ),
+        onReady: () {
+          debugPrint('[YouTubePlayer] onReady callback triggered');
+          _isPlayerReady = true;
+          if (mounted) {
+            setState(() {
+              _isLoading = false;
+              _hasError = false;
+            });
+          }
+        },
       ),
+      builder: (context, player) {
+        if (!_isPlayerReady) {
+          debugPrint('[YouTubePlayer] Player not ready yet, showing loading indicator');
+          return Container(
+            color: Colors.black,
+            child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+          );
+        }
+        return player;
+      },
     );
   }
 }
