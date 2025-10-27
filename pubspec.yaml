@@ -58,8 +58,8 @@ dependencies:
   # ============================================================================
   # VIDEO PLAYER
   # ============================================================================
-  # youtube_player_iframe: YouTube video player for Flutter applications (iframe-based)
-  youtube_player_iframe: ^5.2.2
+  # youtube_player_flutter: YouTube video player for Flutter applications
+  youtube_player_flutter: ^9.1.3
 
 dev_dependencies:
   flutter_test:
